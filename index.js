@@ -7,6 +7,8 @@ import http from 'http';
 import https from 'https';
 import Koa from 'koa';
 
+import marked from 'marked';
+
 import peacoat from 'peacoat';
 
 import KoaViews from 'koa-views';
@@ -42,15 +44,13 @@ async function home(ctx) {
 
 async function view(ctx) {
   const id = ctx.params.id;
-
   let exists = await ctx.peacoat.has(id);
   if((id === 'main') && (!exists)){
     await ctx.peacoat.create({ id: 'main', content: 'Hello World' });
     exists = true;
   }
-
   let content = `This page does not yet exist.`;
-  if(exists) content = (await ctx.peacoat.get(id)).content;
+  if(exists) content = marked((await ctx.peacoat.get(id)).content);
   await ctx.render('view', Object.assign({id, content},configuration,{}));
 }
 
