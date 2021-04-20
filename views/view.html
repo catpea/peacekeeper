@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('partials/head.html', {}); %>
+  </head>
+  <body>
+  <%- include('partials/nav.html', {}); %>
+
+  <main class="container bg-dark text-white rounded p-3">
+    <a href="/edit/<%= id %>" class="float-end text-decoration-none">edit</a>
+    <%= content %>
+  </main>
+
+  <%- include('partials/footer.html', {}); %>
+  <%- include('partials/foot.html', {}); %>
+  </body>
+</html>
