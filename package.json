@@ -1,0 +1,25 @@
+{
+  "name": "peacekeeper",
+  "version": "1.0.0",
+  "description": "A Beautiful WikiWiki",
+  "main": "index.js",
+  "scripts": {
+    "save": "git add .; git commit -m 'New Release'; git push; npm version patch; npm publish; git push;",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "peacoat": "^1.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catpea/peacekeeper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/catpea/peacekeeper/issues"
+  },
+  "homepage": "https://github.com/catpea/peacekeeper#readme"
+}
