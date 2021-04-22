@@ -24,7 +24,7 @@ koaRouter
   .get('/view/:id', view)
   .get('/edit/:id', edit)
   .get('/history/:id', history)
-  .post('/save', save);
+  .post('/save/:id', save);
 
 const app = new Koa();
 app.context.peacoat = peacoat;
@@ -46,7 +46,7 @@ async function view(ctx) {
   const id = ctx.params.id;
   let exists = await ctx.peacoat.has(id);
   if((id === 'main') && (!exists)){
-    await ctx.peacoat.create({ id: 'main', content: 'Hello World' });
+    await ctx.peacoat.create({ id: 'main', content: 'Hello World', comment:'Initial Commit', description: 'Initial record entry.', created: (new Date()).toISOString(), modified: (new Date).toISOString() });
     exists = true;
   }
   let content = `This page does not yet exist.`;
@@ -69,7 +69,24 @@ async function history(ctx) {
 
 async function save(ctx) {
   const id = ctx.params.id;
-  await ctx.render('save', Object.assign({},configuration,{}));
+
+  const {content, comment, description} = ctx.request.body;
+  const updated = {
+    content,
+    comment,
+    description,
+    modified: (new Date()).toISOString()
+  };
+
+  let exists = await ctx.peacoat.has(id);
+  if(!exists){
+    await ctx.peacoat.create({ id, updated });
+  }else{
+    const current = await ctx.peacoat.get(id);
+    const combined = Object.assign({}, current, updated);
+    await ctx.peacoat.update(combined);
+  }
+  ctx.redirect(`/view/${id}`);
 }
 
 
