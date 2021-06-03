@@ -1,8 +1,8 @@
 {
+  "type": "module",
   "name": "peacekeeper",
   "version": "2.0.0",
   "description": "Asynchronous Processing Framework",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "save": "git add .; git commit -m 'New Release'; git push; npm version patch; npm publish; git push;",
