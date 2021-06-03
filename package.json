@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "peacekeeper",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Asynchronous Processing Framework",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,7 @@
   "keywords": [],
   "author": "@catpea",
   "license": "ISC",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/catpea/peacekeeper.git"
