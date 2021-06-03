@@ -1,7 +1,7 @@
 {
   "name": "peacekeeper",
-  "version": "1.0.6",
-  "description": "A Beautiful WikiWiki",
+  "version": "2.0.0",
+  "description": "Asynchronous Processing Framework",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -12,14 +12,7 @@
   "author": "@catpea",
   "license": "ISC",
   "dependencies": {
-    "@koa/router": "^10.0.0",
-    "ejs": "^3.1.6",
-    "koa": "^2.13.1",
-    "koa-body": "^4.2.0",
-    "koa-static": "^5.0.0",
-    "koa-views": "^7.0.1",
-    "marked": "^2.0.3",
-    "peacoat": "^1.0.1"
+
   },
   "repository": {
     "type": "git",
